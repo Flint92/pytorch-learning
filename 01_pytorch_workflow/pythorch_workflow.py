@@ -3,29 +3,9 @@ import matplotlib.pyplot as plt
 
 from torch import nn # nn contains all of PyTorch's building blocks for neural networks
 from pathlib import Path
+from utils.help_functions import plot_predictions
 
 
-
-def plot_predictions(train_data, train_labels, test_data, test_labels, predictions=None):
-    """
-    Plots training data, testing data and compares predictions
-    """
-
-    plt.figure(figsize=(10, 7))
-
-    # plot training data in blue
-    plt.scatter(train_data, train_labels, c='b', s=4, label="Training data")
-
-    # plot testing data in green
-    plt.scatter(test_data, test_labels, c='g', s=4, label="Testing data")
-
-    if predictions is not None:
-        # plot the predictions in red
-        plt.scatter(test_data, predictions, c='r', s=4, label="Predictions")
-
-    # show the legend
-    plt.legend(prop={'size': 14})
-    plt.show()
 
 # create linear regression model class
 class LinearRegressionModel(nn.Module):
