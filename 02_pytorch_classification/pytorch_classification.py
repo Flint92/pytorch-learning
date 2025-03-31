@@ -6,7 +6,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from torch import nn
 from utils.device import get_device
-from utils.help_functions import plot_predictions, plot_decision_boundary
+from utils.help_functions import set_seeds, plot_decision_boundary
 
 class CircleModelV0(nn.Module):
     def __init__(self):
@@ -100,11 +100,9 @@ if __name__ == '__main__':
     #     y_pred_labels = torch.round(torch.sigmoid(model_0(X_test.to(device))[:5]))
     #     print(torch.eq(y_preds.squeeze(), y_pred_labels.squeeze()))
 
-    torch.manual_seed(42)  # set the seed for CPU and GPU
-    torch.mps.manual_seed(42)  # set the seed for MPS
-    torch.cuda.manual_seed(42)  # set the seed for CUDA
+    set_seeds()
 
-    epoches = 1000
+    epoches = 2000
     for epoch in range(epoches):
         model.train()
 
