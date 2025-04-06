@@ -5,3 +5,4 @@ matplotlib==3.9.4
 scikit-learn==1.6.1
 requests==2.32.1
 torchvision==0.21.0
+torchmetrics==1.7.0
